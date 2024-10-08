@@ -35,34 +35,36 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      name: "Project 2",
-      logo: "diff-read-logo.png",
-      link: "https://diffread.com/",
+      name: "Project 6",
+      logo: "titda-logo.png",
+      link: "http://titdamanchester.com/",
     },
     {
       id: 7,
-      name: "Project 3",
-      logo: "inkbird-logo.png",
-      link: "https://inkbird.com/",
+      name: "Project 7",
+      logo: "west-coast-tees-logo.png",
+      link: "https://www.westcoastees.com/",
     },
     {
       id: 8,
-      name: "Project 4",
-      logo: "jazz-hunt-logo.png",
-      link: "https://jazz-hunt.vercel.app/",
+      name: "Project 8",
+      logo: "ak-logo.png",
+      link: "https://adamkhomsi.ca/",
     },
   ];
 
   return (
     <div className="portfolio">
       <h2>Portfolio</h2>
-      <div>
+      <div className="projects">
         {projects.map((project) => (
           <a
             style={project.id === 4 ? { opacity: "0.5" } : {}}
             key={project.id}
             href={project.link}
             className="portfolio-item"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img src={project.logo} alt={project.name} />
           </a>

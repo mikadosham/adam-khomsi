@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./Typewriter.css";
 
 const Typewriter = ({ text, baseDelay = 10 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
-  const textareaRef = useRef(null); // Reference to the textarea
 
   useEffect(() => {
-    textareaRef.current.focus(); // Focus on the textarea to show the caret
-
     if (index < text.length) {
       const delay = baseDelay + Math.random() * 150;
       const timer = setTimeout(() => {
@@ -20,25 +17,13 @@ const Typewriter = ({ text, baseDelay = 10 }) => {
     }
   }, [index, text, baseDelay]);
 
-  const handleUserInput = (e) => {
-    e.preventDefault(); // Prevent all user input, keeping the caret active
-  };
-
   return (
     <div>
       <h1>Hey, I'm Adam :)</h1>
-      <textarea
-        ref={textareaRef}
-        className="typewriter"
-        value={displayedText}
-        onChange={handleUserInput}
-        onKeyDown={handleUserInput}
-        onMouseDown={(e) => e.preventDefault()} // Prevents selection if needed
-        style={{
-          cursor: "text",
-          padding: "10px",
-        }}
-      />
+      <div className="typewriter">
+        {displayedText}
+        <span className="caret">|</span>
+      </div>
     </div>
   );
 };

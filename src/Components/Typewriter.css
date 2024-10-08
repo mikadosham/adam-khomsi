@@ -1,17 +1,26 @@
 .typewriter {
   font-family: "Hermit", monospace;
+  display: inline-block;
   overflow: hidden;
-  white-space: wrap;
-  width: 100%;
-  resize: none;
-  height: 350px;
-  border: none;
-  outline: none;
-  text-align: center;
-  align-content: center;
-  font-size: 17px;
+  padding: 10px;
+  min-height: 50px;
 }
 
-.typewriter:focus-visible {
-  outline: none;
+.caret {
+  display: inline-block;
+  width: 1px;
+  background-color: rgb(255, 255, 255);
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

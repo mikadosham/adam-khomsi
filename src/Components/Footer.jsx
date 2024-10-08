@@ -19,7 +19,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </a>
         <a
-          href="https://www.linkedin.com/in/your-username"
+          href="https://www.linkedin.com/in/adam-khomsi-69394069/"
           target="_blank"
           rel="noopener noreferrer"
         >

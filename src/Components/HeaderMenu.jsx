@@ -22,27 +22,32 @@ const HeaderMenu = ({ onPortfolioClick, onHomeClick, showHome }) => {
 
   return (
     <header>
-      <nav>
-        <button
-          className={`hamburger ${isOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-        >
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
-        </button>
-        <ul className={`nav-menu ${isOpen ? "slide-in" : "slide-out"}`}>
-          <li>
-            {showHome ? (
-              <span onClick={handleHomeClick}>Home</span>
-            ) : (
-              <span onClick={handlePortfolioClick}>Portfolio</span>
-            )}
-          </li>
-          <li>
-            <span>Contact</span>
-          </li>
-        </ul>
+      <nav className="header-nav">
+        <div className="menu-left">
+          <button
+            className={`hamburger ${isOpen ? "open" : ""}`}
+            onClick={toggleMenu}
+          >
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+          </button>
+          <ul className={`nav-menu ${isOpen ? "slide-in" : "slide-out"}`}>
+            <li>
+              {showHome ? (
+                <span onClick={handleHomeClick}>Home</span>
+              ) : (
+                <span onClick={handlePortfolioClick}>Portfolio</span>
+              )}
+            </li>
+            <li>
+              <span>Contact</span>
+            </li>
+          </ul>
+        </div>
+        <div className="logo-center">
+          <img src="ak-logo.png" alt="Logo" />
+        </div>
       </nav>
     </header>
   );
