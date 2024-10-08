@@ -19,7 +19,9 @@ const Typewriter = ({ text, baseDelay = 10 }) => {
 
   return (
     <div>
+      <img className="profile-img" src="profile.jpg" alt="profile" />
       <h1>Hey, I'm Adam :)</h1>
+
       <div className="typewriter">
         {displayedText}
         <span className="caret">|</span>

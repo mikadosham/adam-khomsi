@@ -30,6 +30,9 @@ main {
   background-color: black;
 }
 
+h1 {
+  font-size: 30px;
+}
 header {
   margin: 20px 0;
   text-align: center;

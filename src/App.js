@@ -8,7 +8,7 @@ import Portfolio from "./Components/Portfolio";
 function Home() {
   const [showPortfolio, setShowPortfolio] = useState(false);
 
-  const introText = `I'm a full-stack web developer with a passion for creating aesthetically pleasing, functional websites, online stores and applications. I look forward to connecting!`;
+  const introText = `I'm a full-stack developer with a passion for creating aesthetically pleasing, functional websites, online stores and applications. I look forward to connecting!`;
 
   const handlePortfolioClick = () => {
     setShowPortfolio(true);

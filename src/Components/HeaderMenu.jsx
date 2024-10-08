@@ -46,7 +46,9 @@ const HeaderMenu = ({ onPortfolioClick, onHomeClick, showHome }) => {
           </button>
         </div>
         <div className="logo-center">
-          <img src="ak-logo.png" alt="Logo" />
+          <a href="/" onClick={handleHomeClick}>
+            <img src="ak-logo.png" alt="Logo" />
+          </a>
         </div>
       </nav>
     </header>
