@@ -1,0 +1,17 @@
+.footer-icons {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  justify-content: space-evenly;
+}
+
+.footer-icons a {
+  color: black;
+}
+
+footer {
+  margin: 20px;
+  text-align: center;
+  align-self: flex-end;
+  font-size: 10px;
+}

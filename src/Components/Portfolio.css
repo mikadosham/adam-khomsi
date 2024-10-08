@@ -1,0 +1,33 @@
+.fade-in {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+.portfolio {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.portfolio-item {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item img {
+  width: 100px;
+  height: 100px;
+  margin: 0px 10px;
+  filter: grayscale();
+}
+
+.portfolio-item:hover {
+  transform: scale(1.2); /* Pop effect */
+}

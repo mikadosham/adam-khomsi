@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Hermit";
+  src: url("/public/fonts/HurmitNerdFont-Regular.otf") format("woff2"),
+    url("/public/fonts/HurmitNerdFont-Regular.otf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hermit", sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+main {
+  padding: 0px 50px;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 13px;
+  width: 90vw; /* Full width minus a small margin */
+  max-width: 1200px;
+  margin: 40px auto;
+  border: 6px solid black;
+  display: grid;
+}
+
+header {
+  margin: 20px 0;
+  text-align: center;
+}
+
+nav {
+  text-align: -webkit-center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  nav ul {
+    flex-direction: row; /* Display menu items in a row on larger screens */
+    justify-content: center;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
