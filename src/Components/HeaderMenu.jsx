@@ -24,14 +24,6 @@ const HeaderMenu = ({ onPortfolioClick, onHomeClick, showHome }) => {
     <header>
       <nav className="header-nav">
         <div className="menu-left">
-          <button
-            className={`hamburger ${isOpen ? "open" : ""}`}
-            onClick={toggleMenu}
-          >
-            <span className="line"></span>
-            <span className="line"></span>
-            <span className="line"></span>
-          </button>
           <ul className={`nav-menu ${isOpen ? "slide-in" : "slide-out"}`}>
             <li>
               {showHome ? (
@@ -44,6 +36,14 @@ const HeaderMenu = ({ onPortfolioClick, onHomeClick, showHome }) => {
               <span>Contact</span>
             </li>
           </ul>
+          <button
+            className={`hamburger ${isOpen ? "open" : ""}`}
+            onClick={toggleMenu}
+          >
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+          </button>
         </div>
         <div className="logo-center">
           <img src="ak-logo.png" alt="Logo" />

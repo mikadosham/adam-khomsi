@@ -27,16 +27,12 @@ function Home() {
           showHome={showPortfolio}
         />
         <main>
-          {!showPortfolio && (
-            <div className={`fade-in`}>
-              <Typewriter text={introText} />
-            </div>
-          )}
-          {showPortfolio && (
-            <div className={`fade-in`}>
-              <Portfolio />
-            </div>
-          )}
+          <div className={showPortfolio ? "fade-out" : "fade-in"}>
+            {!showPortfolio && <Typewriter text={introText} />}
+          </div>
+          <div className={showPortfolio ? "fade-in" : "fade-out"}>
+            {showPortfolio && <Portfolio />}
+          </div>
         </main>
         <Footer />
       </div>

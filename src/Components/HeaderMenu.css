@@ -94,22 +94,23 @@ nav ul {
 }
 
 .nav-menu {
-  position: absolute;
+  position: fixed;
   top: -100%;
-  left: -60px;
-  width: 123%;
-  background-color: #000000;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #000;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: top 0.3s ease;
   z-index: 10;
-  padding: 45px 0px;
+  padding: 45px 0;
 }
 
 .nav-menu.slide-in {
-  top: -86px;
+  top: 0px;
 }
 .nav-menu.slide-out {
   top: -400%;

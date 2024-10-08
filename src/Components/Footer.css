@@ -3,6 +3,7 @@
   width: 50%;
   margin: auto;
   justify-content: space-evenly;
+  transform: scale(1.2); /* Pop effect */
 }
 
 .footer-icons a {
@@ -14,4 +15,8 @@ footer {
   text-align: center;
   align-self: flex-end;
   font-size: 10px;
+}
+
+.footer-icons a:hover {
+  transform: scale(1.2); /* Pop effect */
 }
