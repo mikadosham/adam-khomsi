@@ -33,7 +33,7 @@ const HeaderMenu = ({ onPortfolioClick, onHomeClick, showHome }) => {
               )}
             </li>
             <li>
-              <span>Contact</span>
+              <a href="mailto:me@adamkhomsi.ca">Contact</a>
             </li>
           </ul>
           <button

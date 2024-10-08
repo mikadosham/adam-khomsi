@@ -30,20 +30,6 @@ main {
   background-color: black;
 }
 
-.content-wrapper {
-  flex-grow: 1;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  border-radius: 13px;
-  width: 90vw; /* Full width minus a small margin */
-  max-width: 1200px;
-  margin: 40px auto;
-  border: 6px solid black;
-  display: grid;
-  background-color: white;
-}
-
 header {
   margin: 20px 0;
   text-align: center;
@@ -70,4 +56,40 @@ nav ul {
   to {
     opacity: 1;
   }
+}
+
+@keyframes reversed-border {
+  0% {
+    border-color: rgb(0, 0, 0); /* Starts at black */
+  }
+  20% {
+    border-color: rgb(49, 48, 48);
+  }
+  40% {
+    border-color: rgb(69, 69, 69);
+  }
+  60% {
+    border-color: rgb(154, 155, 154);
+  }
+  80% {
+    border-color: rgb(190, 190, 190);
+  }
+  100% {
+    border-color: rgb(255, 255, 255); /* Ends at white */
+  }
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 13px;
+  width: 90vw;
+  max-width: 900px;
+  margin: 40px auto;
+  border: 6px solid;
+  background-color: white;
+  animation: reversed-border 5s linear infinite alternate;
+  display: grid;
 }
