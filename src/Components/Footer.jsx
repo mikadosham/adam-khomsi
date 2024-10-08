@@ -10,7 +10,6 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <p>Lovingly slapped together with coffee and jazz.</p>
       <div className="footer-icons">
         <a
           href="https://github.com/mikadosham"
@@ -27,13 +26,14 @@ const Footer = () => {
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </a>
         <a
-          href="https://www.instagram.com/your-username"
+          href="https://www.instagram.com/adamkhomsi"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faInstagram} size="2x" />
         </a>
       </div>
+      <p>Lovingly slapped together with coffee and jazz.</p>
       <p>© 2024 Adam Khomsi</p>
     </footer>
   );

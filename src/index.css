@@ -26,6 +26,7 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: black;
 }
 
 .content-wrapper {
@@ -39,6 +40,7 @@ main {
   margin: 40px auto;
   border: 6px solid black;
   display: grid;
+  background-color: white;
 }
 
 header {

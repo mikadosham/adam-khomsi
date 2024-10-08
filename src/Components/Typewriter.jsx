@@ -10,10 +10,10 @@ const Typewriter = ({ text, baseDelay = 10 }) => {
     textareaRef.current.focus(); // Focus on the textarea to show the caret
 
     if (index < text.length) {
-      const delay = Math.random() * 150;
+      const delay = baseDelay + Math.random() * 150;
       const timer = setTimeout(() => {
         setDisplayedText((d) => d + text.charAt(index));
-        setIndex(index + 1);
+        setIndex((prevIndex) => prevIndex + 1);
       }, delay);
 
       return () => clearTimeout(timer);
@@ -34,7 +34,10 @@ const Typewriter = ({ text, baseDelay = 10 }) => {
         onChange={handleUserInput}
         onKeyDown={handleUserInput}
         onMouseDown={(e) => e.preventDefault()} // Prevents selection if needed
-        style={{ cursor: "text" }}
+        style={{
+          cursor: "text",
+          padding: "10px",
+        }}
       />
     </div>
   );

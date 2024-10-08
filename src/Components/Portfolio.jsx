@@ -29,9 +29,9 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      name: "Project 1",
-      logo: "budhagirl-logo.jpeg",
-      link: "https://budhagirl.co.uk/",
+      name: "Project 5",
+      logo: "maui-diver-logo.png",
+      link: "https://www.mauidivers.com/",
     },
     {
       id: 6,
