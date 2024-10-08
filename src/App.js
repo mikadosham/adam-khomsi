@@ -10,13 +10,8 @@ function Home() {
 
   const introText = `I'm a full-stack developer with a passion for creating aesthetically pleasing, functional websites, online stores and applications. I look forward to connecting!`;
 
-  const handlePortfolioClick = () => {
-    setShowPortfolio(true);
-  };
-
-  const handleHomeClick = () => {
-    setShowPortfolio(false);
-  };
+  const handlePortfolioClick = () => setShowPortfolio(true);
+  const handleHomeClick = () => setShowPortfolio(false);
 
   return (
     <div className="main-wrapper">

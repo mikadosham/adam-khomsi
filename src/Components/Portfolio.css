@@ -1,3 +1,4 @@
+/* Fade in/out animations */
 .fade-in {
   opacity: 1;
   transition: opacity 1s ease-in;
@@ -8,6 +9,7 @@
   transition: opacity 1s ease-out;
 }
 
+/* Portfolio container */
 .portfolio {
   display: flex;
   justify-content: center;
@@ -18,6 +20,7 @@
   margin: auto;
 }
 
+/* Portfolio item */
 .portfolio-item {
   display: inline-block;
   transition: transform 0.3s ease;
@@ -30,6 +33,7 @@
   filter: grayscale();
 }
 
+/* Responsive portfolio item */
 @media only screen and (max-width: 600px) {
   .portfolio-item img {
     width: 50px;
@@ -37,10 +41,12 @@
   }
 }
 
+/* Hover effect for portfolio items */
 .portfolio-item:hover {
   transform: scale(1.2); /* Pop effect */
 }
 
+/* Projects container */
 .projects {
   display: flex;
   flex-wrap: wrap;

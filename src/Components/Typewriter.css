@@ -1,18 +1,32 @@
+/* Typewriter effect */
 .typewriter {
   font-family: "Hermit", monospace;
   display: inline-block;
   overflow: hidden;
   padding: 10px;
   min-height: 50px;
+  max-width: 500px;
 }
 
+/* Profile image with rolling animation */
 .profile-img {
   max-width: 125px;
   filter: drop-shadow(2px 4px 6px black);
-  border: 4px solid #000000;
-  border-radius: 15px;
+  border-radius: 200px;
+  animation: roll-in 2s ease-out;
 }
 
+/* Keyframes for rolling animation */
+@keyframes roll-in {
+  0% {
+    transform: translateX(-100vw) rotate(-720deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+/* Caret animation */
 .caret {
   display: inline-block;
   width: 1px;
@@ -21,13 +35,11 @@
 }
 
 @keyframes blink {
-  0% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
