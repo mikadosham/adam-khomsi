@@ -12,9 +12,8 @@
   transition: transform 0.3s ease;
 }
 
-/* Project name */
 .project-name {
-  position: absolute;
+  position: fixed;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
@@ -22,9 +21,9 @@
   opacity: 0;
   filter: drop-shadow(0px 1px 3px black);
   transition: opacity 1s ease;
-  top: 219px;
-  height: 30px;
-  font-size: 20px;
+  top: 225px;
+  height: 32px;
+  font-size: 25px;
 }
 
 /* Hover effect for project name and title */
@@ -36,36 +35,21 @@
   opacity: 0;
 }
 
-/* Mobile-specific styling */
-@media only screen and (max-width: 600px) {
-  .project-name {
-    top: 113px;
-    width: max-content;
-    opacity: 1 !important;
-  }
-
-  .portfolio-item {
-    flex: 1 1 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-
-  .projects {
-    max-width: 333px;
-  }
-}
-
 /* Portfolio item image */
 .portfolio-item img {
   width: 100px;
   height: 100px;
   margin: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-
+.portfolio-item:hover img {
+  transform: scale(1.2); /* Pop effect on hover */
+}
 /* Projects container */
 .projects {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   max-width: 600px;
   margin: auto;
@@ -84,4 +68,31 @@
 
 .project-name.fade-in {
   opacity: 1;
+}
+
+/* Mobile-specific styling */
+@media only screen and (max-width: 600px) {
+  .portfolio-item img {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+  }
+  .project-name {
+    position: absolute;
+    top: 100px;
+    width: 165px;
+    opacity: 1 !important;
+    font-size: 15px;
+  }
+  .title.fade-out {
+    opacity: 1;
+  }
+  .portfolio-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+
+  .projects {
+    max-width: 333px;
+  }
 }
