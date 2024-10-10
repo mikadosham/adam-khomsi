@@ -1,55 +1,87 @@
-/* Fade in/out animations */
-.fade-in {
+/* Title class - starts visible */
+.title {
+  margin-bottom: 20px;
   opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease-out;
-}
-
-/* Portfolio container */
-.portfolio {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  flex-direction: column;
-  max-width: 500px;
-  margin: auto;
+  transition: opacity 1s ease;
 }
 
 /* Portfolio item */
 .portfolio-item {
+  position: relative;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
+/* Project name */
+.project-name {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  opacity: 0;
+  filter: drop-shadow(0px 1px 3px black);
+  transition: opacity 1s ease;
+  top: 219px;
+  height: 30px;
+  font-size: 20px;
+}
+
+/* Hover effect for project name and title */
+.portfolio-item:hover .project-name {
+  opacity: 1;
+}
+
+.portfolio-item:hover .title {
+  opacity: 0;
+}
+
+/* Mobile-specific styling */
+@media only screen and (max-width: 600px) {
+  .project-name {
+    top: 113px;
+    width: max-content;
+    opacity: 1 !important;
+  }
+
+  .portfolio-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+
+  .projects {
+    max-width: 333px;
+  }
+}
+
+/* Portfolio item image */
 .portfolio-item img {
   width: 100px;
   height: 100px;
   margin: 10px;
-  filter: grayscale();
-}
-
-/* Responsive portfolio item */
-@media only screen and (max-width: 600px) {
-  .portfolio-item img {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* Hover effect for portfolio items */
-.portfolio-item:hover {
-  transform: scale(1.2); /* Pop effect */
 }
 
 /* Projects container */
 .projects {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* For 4 items per row on larger screens */
+.portfolio-item {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+}
+
+/* Fading effects */
+.title.fade-out {
+  opacity: 0;
+}
+
+.project-name.fade-in {
+  opacity: 1;
 }

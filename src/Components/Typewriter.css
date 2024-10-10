@@ -3,8 +3,7 @@
   font-family: "Hermit", monospace;
   display: inline-block;
   overflow: hidden;
-  padding: 10px;
-  min-height: 50px;
+  min-height: 23px;
   max-width: 500px;
 }
 
@@ -13,7 +12,14 @@
   max-width: 125px;
   filter: drop-shadow(2px 4px 6px black);
   border-radius: 200px;
+}
+
+.profile-img.animate {
+  max-width: 125px;
+  filter: drop-shadow(2px 4px 6px black);
+  border-radius: 200px;
   animation: roll-in 2s ease-out;
+  animation-iteration-count: 1; /* Run the animation only once */
 }
 
 /* Keyframes for rolling animation */
@@ -41,5 +47,19 @@
   }
   50% {
     opacity: 0;
+  }
+}
+
+.bounce {
+  animation: bounce 0.3s ease-in-out; /* Faster bounce animation */
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Slightly less height for a faster bounce */
   }
 }
