@@ -50,9 +50,9 @@ const Portfolio = () => {
 
     {
       id: 8,
-      name: "My Site",
-      logo: "ak-logo.png",
-      link: "https://adamkhomsi.ca/",
+      name: "Truth Pulse",
+      logo: "truth-logo.png",
+      link: "https://truth-pulse-rho.vercel.app/",
     },
   ];
 
