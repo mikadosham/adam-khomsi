@@ -26,7 +26,7 @@ const Portfolio = () => {
       id: 4,
       name: "JazzHunt",
       logo: "jazz-hunt-logo.png",
-      link: "https://jazz-hunt.vercel.app/",
+      link: "https://jazzhunt.ca/",
     },
     {
       id: 7,
