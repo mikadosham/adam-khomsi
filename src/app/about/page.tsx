@@ -189,8 +189,7 @@ export default function AboutPage() {
                 deep understanding of the Shopify ecosystem.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                I&apos;m proficient in React/TypeScript, Next.js, Ruby on Rails,
-                and GraphQL, with a history of collaborating with
+                I&apos;m proficient in many front and back end technologies, with a history of collaborating with
                 cross-functional teams to craft solutions that elevate both user
                 and merchant experiences. Known for clean code, creative
                 thinking, and product intuition grounded in years of experience
