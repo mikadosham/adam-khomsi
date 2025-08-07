@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -13,14 +12,37 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
+    // Check localStorage first, then system preference
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const shouldBeDark =
+      savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+
+    setIsDark(shouldBeDark);
+
+    if (shouldBeDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDark;
     setIsDark(newDarkMode);
-    document.documentElement.classList.toggle("dark");
+
+    // Save to localStorage
+    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+
+    // Update document class
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   };
 
   const navItems = [
@@ -40,7 +62,7 @@ export default function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center"
@@ -53,9 +75,6 @@ export default function Navigation() {
                 className="w-10 h-10 dark:invert"
               />
             </motion.div>
-            <Badge variant="secondary" className="text-xs">
-              Developer
-            </Badge>
           </Link>
 
           {/* Desktop Navigation */}

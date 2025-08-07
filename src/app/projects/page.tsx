@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,119 +10,199 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, ExternalLink, Calendar, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import ProjectPreview from "@/components/project-preview";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiSupabase,
+  SiStripe,
+  SiTailwindcss,
+  SiFramer,
+  SiVercel,
+  SiFirebase,
+  SiNodedotjs,
+  SiJavascript,
+  SiOpenai,
+  SiZod,
+  SiShadcnui,
+} from "react-icons/si";
 
 export default function ProjectsPage() {
+  // Helper function to get tech icon and color
+  const getTechInfo = (techName: string) => {
+    const techMap: Record<
+      string,
+      {
+        icon: React.ComponentType<{
+          className?: string;
+          style?: React.CSSProperties;
+        }>;
+        color: string;
+      }
+    > = {
+      "Next.js": { icon: SiNextdotjs, color: "#000000" },
+      React: { icon: SiReact, color: "#61DAFB" },
+      TypeScript: { icon: SiTypescript, color: "#3178C6" },
+      Supabase: { icon: SiSupabase, color: "#3ECF8E" },
+      Stripe: { icon: SiStripe, color: "#635BFF" },
+      TailwindCSS: { icon: SiTailwindcss, color: "#06B6D4" },
+      Zod: { icon: SiZod, color: "#443E38" },
+      "Framer Motion": { icon: SiFramer, color: "#FF0055" },
+      OpenAI: { icon: SiOpenai, color: "#412991" },
+      Mapbox: { icon: SiReact, color: "#4264FB" },
+      Firebase: { icon: SiFirebase, color: "#FFCA28" },
+      "PWA/Service Workers": { icon: SiReact, color: "#5A0FC8" },
+      "Node.js": { icon: SiNodedotjs, color: "#339933" },
+      "CSS Modules": { icon: SiReact, color: "#1572B6" },
+      "AI/ML APIs": { icon: SiReact, color: "#61DAFB" },
+      Vercel: { icon: SiVercel, color: "#000000" },
+      JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
+      "Modern Web APIs": { icon: SiJavascript, color: "#F7DF1E" },
+      "Responsive Design": { icon: SiTailwindcss, color: "#06B6D4" },
+      "ShadCN/UI": { icon: SiShadcnui, color: "#000000" },
+      "Radix UI": { icon: SiReact, color: "#161618" },
+      "React Hook Form": { icon: SiReact, color: "#EC5990" },
+      "React Dropzone": { icon: SiReact, color: "#61DAFB" },
+      "React Day Picker": { icon: SiReact, color: "#61DAFB" },
+      "Lucide React": { icon: SiReact, color: "#F56565" },
+      PostgreSQL: { icon: SiReact, color: "#336791" },
+      "API Routes": { icon: SiNextdotjs, color: "#000000" },
+      Webhooks: { icon: SiReact, color: "#4A90E2" },
+      "Real-time subscriptions": { icon: SiSupabase, color: "#3ECF8E" },
+      "Cron jobs": { icon: SiNodedotjs, color: "#339933" },
+      "TanStack Query": { icon: SiReact, color: "#FF4154" },
+      Zustand: { icon: SiReact, color: "#443E38" },
+      "React hooks": { icon: SiReact, color: "#61DAFB" },
+      "Server state": { icon: SiReact, color: "#61DAFB" },
+      "Stripe Connect": { icon: SiStripe, color: "#635BFF" },
+      "Payment Intents": { icon: SiStripe, color: "#635BFF" },
+      "Automated payouts": { icon: SiStripe, color: "#635BFF" },
+      "Node-ical": { icon: SiNodedotjs, color: "#339933" },
+      ESLint: { icon: SiReact, color: "#4B32C3" },
+      pnpm: { icon: SiNodedotjs, color: "#F69220" },
+    };
+
+    return techMap[techName] || { icon: null, color: "#666666" };
+  };
+
   const projects = [
     {
       title: "Rehostly",
       description:
-        "A production-ready direct-booking marketplace for Airbnb hosts and return guests. Features a sophisticated split-fee payment model, real-time booking engine, and comprehensive host/guest dashboards.",
+        "A comprehensive platform empowering vacation rental hosts to manage repeat guests independently. Hosts can manage their listings, automate guest communications, and create their own branded booking website to bypass platform fees.",
       longDescription:
-        "Rehostly is a modern, full-stack marketplace application that enables Airbnb hosts to accept direct bookings from their return guests, bypassing Airbnb's fees. Built with a focus on type safety, user experience, and scalable payment processing, it features a sophisticated split-fee payment model, instant booking flows, and comprehensive dashboards for both hosts and guests. The application includes a professional host dashboard for managing property listings, tracking bookings, and monitoring earnings.",
+        "Rehostly is a full-stack SaaS platform designed specifically for vacation rental hosts to build lasting relationships with their repeat guests. The platform enables hosts to create their own branded booking websites, manage property listings independently, and automate personalized email communications with past guests. With integrated payment processing and a sophisticated host dashboard, Rehostly transforms how hosts manage their repeat business, allowing them to reduce dependency on booking platforms while increasing direct bookings and profit margins.",
       tech: [
-        "Next.js 14 (App Router)",
-        "React 18 + TypeScript",
-        "Supabase (PostgreSQL, Auth, Storage)",
-        "Stripe Connect + PaymentIntents",
-        "Resend (Transactional Emails)",
-        "TailwindCSS + ShadCN/UI",
-        "Framer Motion + Lucide React",
-        "Zod + React Hook Form",
-        "TanStack Query",
-        "Date-fns",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Supabase",
+        "Stripe",
+        "TailwindCSS",
+        "Framer Motion",
+        "Zod",
+        "OpenAI",
+        "ShadCN/UI",
       ],
       features: [
-        "Split-fee payment model (guest + host fees)",
-        "Instant booking and booking request flows",
-        "Host dashboard with earnings tracking",
-        "Guest booking engine with customizable themes",
-        "Real-time updates via Supabase subscriptions",
-        "Email automation for booking confirmations",
-        "Stripe Connect marketplace payments",
-        "Multi-tenant marketplace architecture",
-        "Webhook-driven payment processing",
-        "Mobile-first responsive design",
+        "Custom branded booking websites for each host",
+        "Comprehensive listing management dashboard",
+        "Automated email campaigns for repeat guests",
+        "Direct payment processing bypassing platform fees",
+        "Guest relationship management and communication tools",
+        "Real-time booking availability and calendar sync",
+        "Multi-property management for portfolio hosts",
+        "Analytics and earnings tracking",
+        "Mobile-responsive guest booking experience",
+        "Automated follow-up sequences for past guests",
+        "Integration with existing property management tools",
+        "Secure payment handling with Stripe Connect",
+        "Customizable booking flows and policies",
+        "Guest database with booking history",
+        "Professional host onboarding and setup",
       ],
       architecture: {
         frontend: [
-          "Next.js 14 with App Router",
-          "React 18 with TypeScript",
-          "TailwindCSS + ShadCN/UI",
-          "Framer Motion for animations",
-          "Radix UI for accessible primitives",
+          "Next.js",
+          "React",
+          "TypeScript",
+          "TailwindCSS",
+          "ShadCN/UI",
+          "Framer Motion",
+          "Radix UI",
+          "Zod",
+          "Lucide React",
         ],
         backend: [
-          "Supabase (PostgreSQL, Auth, Storage)",
+          "Supabase",
+          "PostgreSQL",
           "Next.js API Routes",
-          "Edge Functions for serverless logic",
+          "Webhooks",
           "Real-time subscriptions",
+          "Cron jobs",
+        ],
+        stateManagement: [
+          "TanStack Query",
+          "Zustand",
+          "React hooks",
+          "Server state",
         ],
         payments: [
-          "Stripe Connect for marketplace payments",
-          "PaymentIntents for secure transactions",
-          "Transfers for host payouts",
-          "Webhook-driven processing",
+          "Stripe Connect",
+          "Payment Intents",
+          "Webhooks",
+          "Automated payouts",
+        ],
+        aiAndServices: [
+          "OpenAI",
+          "Mapbox",
+          "Resend",
+          "Node-ical",
         ],
         development: [
-          "Full-stack TypeScript",
-          "ESLint for code quality",
-          "pnpm package manager",
-          "Vercel deployment",
+          "TypeScript",
+          "ESLint",
+          "pnpm",
+          "Vercel",
         ],
       },
       image: "/rehostly-preview.jpg",
-      demoUrl: "https://rehostly.com",
+      demoUrl: "https://rehostly.ca",
       githubUrl: "#",
       featured: true,
       year: "2024",
       status: "Live",
     },
     {
-      title: "Portfolio Website",
-      description:
-        "Modern portfolio website built with Next.js, featuring smooth animations, responsive design, and a clean professional aesthetic.",
-      longDescription:
-        "A modern, responsive portfolio website showcasing my work and skills. Built with Next.js 15, TailwindCSS for styling, Framer Motion for smooth animations, and ShadCN/UI components for a polished look. Features include dark mode support, mobile-first design, and optimized performance.",
-      tech: [
-        "Next.js 15",
-        "TailwindCSS",
-        "Framer Motion",
-        "ShadCN/UI",
-        "TypeScript",
-      ],
-      features: [
-        "Responsive design with mobile-first approach",
-        "Smooth animations with Framer Motion",
-        "Dark mode support",
-        "Optimized performance and SEO",
-        "Modern UI with ShadCN components",
-      ],
-      image: "/portfolio-preview.jpg",
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false,
-      year: "2024",
-      status: "Live",
-    },
-    {
       title: "JazzHunt",
       description:
-        "A musician-focused visual search tool designed for music discovery through filters and tagging.",
+        "A specialized platform for instrumentalists to discover music in their instrument's key and organize setlists for live performances. Features offline capabilities for seamless use during gigs.",
       longDescription:
-        "JazzHunt is a visual search platform designed specifically for musicians and music enthusiasts. Built with React, Tailwind, and custom GraphQL APIs, it focuses on UI speed, discoverability, and musical concept navigation. The platform allows users to search and discover music through sophisticated filtering and tagging systems, making it easy to find specific musical concepts, artists, and compositions.",
-      tech: ["React", "Tailwind CSS", "GraphQL", "Custom APIs", "TypeScript"],
-      features: [
-        "Visual search interface optimized for speed",
-        "Musical concept navigation and filtering",
-        "Advanced tagging system for music categorization",
-        "Fast, responsive UI focused on discoverability",
-        "Custom GraphQL APIs for efficient data fetching",
-        "Musician-focused search and discovery tools",
+        "JazzHunt is a comprehensive music discovery and performance management platform tailored specifically for instrumentalists. Musicians can search and filter songs by key signature to find music that perfectly suits their instrument, making practice and performance preparation more efficient. The integrated setlist organizer allows musicians to create, manage, and access their performance repertoire during live gigs. Built as a Progressive Web App with offline functionality, JazzHunt ensures musicians have reliable access to their music library even in venues with poor connectivity.",
+      tech: [
+        "React",
+        "Firebase",
+        "PWA/Service Workers",
+        "Node.js",
+        "CSS Modules",
       ],
-      image: "/jazzhunt-preview.jpg",
+      features: [
+        "Key signature search and filtering for instrument compatibility",
+        "Comprehensive setlist organizer for live performances",
+        "Progressive Web App with offline access during gigs",
+        "Music discovery tailored to specific instruments",
+        "Real-time setlist management and organization",
+        "Offline-first architecture for reliable venue performance",
+        "Sheet music and lead sheet storage capabilities",
+        "Performance-ready interface optimized for mobile devices",
+        "Firebase-powered real-time synchronization",
+        "Custom service workers for enhanced offline experience",
+      ],
+      image: "/jazzhunt-screenshot.png",
       demoUrl: "#",
       githubUrl: "#",
       featured: true,
@@ -145,9 +224,9 @@ export default function ProjectsPage() {
         "Simple and intuitive interface",
         "Reliable source attribution",
       ],
-      image: "/truthpulse-preview.jpg",
+      image: "/truth-pulse-screenshot.png",
       demoUrl: "https://truth-pulse-rho.vercel.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/mikadosham/truth-pulse",
       featured: false,
       year: "2024",
       status: "Live",
@@ -155,21 +234,25 @@ export default function ProjectsPage() {
     {
       title: "DiffRead",
       description:
-        "Modern reading and text analysis tool built with JavaScript technologies.",
+        "A developer support tool that makes .diff files human-readable, born from the need to clearly communicate code changes to clients and team members.",
       longDescription:
-        "DiffRead is a modern web application designed to enhance reading and text analysis experiences. Built with contemporary JavaScript frameworks, it provides users with advanced reading tools and text processing capabilities. The application focuses on improving reading comprehension and text analysis through an intuitive, JavaScript-powered interface.",
+        "DiffRead was created to solve a common problem in developer support: making it easy for clients and non-technical stakeholders to understand what changes need to be made to their files. Traditional .diff files are notoriously difficult to read and interpret, creating communication barriers between developers and clients. DiffRead transforms complex diff outputs into clear, visual representations that highlight exactly what changes need to be made and where, making code review and change implementation much more accessible for everyone involved.",
       tech: ["JavaScript", "Modern Web APIs", "Responsive Design"],
       features: [
-        "Enhanced reading experience",
-        "Text analysis capabilities",
-        "Modern JavaScript-powered interface",
-        "Responsive web design",
-        "Advanced reading tools",
-        "User-friendly text processing",
+        "Clear visual representation of .diff file changes",
+        "Side-by-side comparison of file modifications",
+        "Intuitive highlighting of additions, deletions, and modifications",
+        "Easy-to-understand change summaries for non-technical users",
+        "Support for various diff formats and file types",
+        "Clean, accessible interface for better communication",
+        "Perfect for developer support and client communication",
+        "Eliminates confusion when explaining code changes",
+        "Responsive design for desktop and mobile viewing",
+        "No technical expertise required to understand changes",
       ],
-      image: "/diffread-preview.jpg",
+      image: "/diffread-screenshot.png",
       demoUrl: "https://diffread.com/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/mikadosham/diffread",
       featured: false,
       year: "2024",
       status: "Live",
@@ -177,7 +260,7 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Header */}
       <section className="container mx-auto px-4 py-8">
         <motion.div
@@ -227,9 +310,79 @@ export default function ProjectsPage() {
                   project.featured ? "ring-2 ring-blue-500/20" : ""
                 }`}
               >
-                <div className="grid md:grid-cols-2 gap-0">
+                <div className="flex flex-col">
+                  {/* Project Header */}
+                  <div className="p-6 pb-0">
+                    <CardHeader className="p-0">
+                      <div className="flex items-center justify-center gap-3 mb-2">
+                        {project.title === "Rehostly" ? (
+                          <Image
+                            src="/rehostly-logo.png"
+                            alt="Rehostly"
+                            width={450}
+                            height={120}
+                            className="h-24 w-auto dark:invert"
+                          />
+                        ) : project.title === "JazzHunt" ? (
+                          <>
+                            <Image
+                              src="/jazz-hunt-logo.png"
+                              alt="JazzHunt"
+                              width={300}
+                              height={80}
+                              className="h-16 w-auto dark:invert"
+                            />
+                            <CardTitle className="text-2xl">
+                              {project.title}
+                            </CardTitle>
+                          </>
+                        ) : project.title === "TruthPulse 5000" ? (
+                          <>
+                            <Image
+                              src="/truth-logo.png"
+                              alt="TruthPulse 5000"
+                              width={300}
+                              height={80}
+                              className="h-16 w-auto"
+                            />
+                            <CardTitle className="text-2xl">
+                              {project.title}
+                            </CardTitle>
+                          </>
+                        ) : project.title === "DiffRead" ? (
+                          <>
+                            <Image
+                              src="/diff-read-logo.png"
+                              alt="DiffRead"
+                              width={300}
+                              height={80}
+                              className="h-16 w-auto"
+                            />
+                            <CardTitle className="text-2xl">
+                              {project.title}
+                            </CardTitle>
+                          </>
+                        ) : (
+                          <CardTitle className="text-2xl">
+                            {project.title}
+                          </CardTitle>
+                        )}
+                        <Link
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button>
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Demo
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardHeader>
+                  </div>
+
                   {/* Project Preview */}
-                  <div className="relative h-64 md:h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600 overflow-hidden">
+                  <div className="relative h-96 md:h-[500px] lg:h-[600px] from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600 overflow-hidden">
                     <ProjectPreview
                       title={project.title}
                       image={project.image}
@@ -240,33 +393,6 @@ export default function ProjectsPage() {
                   {/* Project Content */}
                   <div className="p-6">
                     <CardHeader className="p-0 pb-4">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <CardTitle className="text-2xl mb-2">
-                            {project.title}
-                          </CardTitle>
-                          <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-3">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-4 h-4" />
-                              {project.year}
-                            </div>
-                            <Badge
-                              variant={
-                                project.status === "Live"
-                                  ? "default"
-                                  : "secondary"
-                              }
-                            >
-                              {project.status}
-                            </Badge>
-                            {project.featured && (
-                              <Badge variant="default" className="bg-blue-500">
-                                Featured
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-                      </div>
                       <CardDescription className="text-base leading-relaxed">
                         {project.longDescription}
                       </CardDescription>
@@ -275,89 +401,153 @@ export default function ProjectsPage() {
                     <CardContent className="p-0">
                       <div className="space-y-6">
                         {/* Tech Stack */}
-                        <div>
+                        <div className="text-center">
                           <h4 className="font-semibold text-slate-900 dark:text-white mb-3">
                             Tech Stack
                           </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech) => (
-                              <Badge
-                                key={tech}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
+                          <div className="flex flex-wrap gap-2 justify-center">
+                            {project.tech.map((tech) => {
+                              const techInfo = getTechInfo(tech);
+                              return (
+                                <Badge
+                                  key={tech}
+                                  variant="secondary"
+                                  className="text-xs flex items-center gap-1.5"
+                                >
+                                  {techInfo.icon && (
+                                    <techInfo.icon
+                                      className={`w-3 h-3 ${
+                                        techInfo.color === "#000000"
+                                          ? "dark:invert"
+                                          : ""
+                                      }`}
+                                      style={{ color: techInfo.color }}
+                                    />
+                                  )}
+                                  {tech}
+                                </Badge>
+                              );
+                            })}
                           </div>
                         </div>
 
                         {/* Architecture (for Rehostly) */}
                         {project.architecture && (
                           <div>
-                            <h4 className="font-semibold text-slate-900 dark:text-white mb-3">
+                            <h4 className="font-semibold text-slate-900 dark:text-white mb-6 text-center text-lg">
                               Architecture
                             </h4>
-                            <div className="space-y-4">
-                              <div>
-                                <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-blue-50 to-slate-50 dark:from-blue-950/20 dark:to-slate-800/50">
+                                <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                                   Frontend
                                 </h5>
-                                <div className="flex flex-wrap gap-1">
+                                <div className="flex flex-wrap gap-2 justify-center">
                                   {project.architecture.frontend.map((tech) => (
                                     <Badge
                                       key={tech}
-                                      variant="outline"
-                                      className="text-xs"
+                                      variant="secondary"
+                                      className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
                                     >
                                       {tech}
                                     </Badge>
                                   ))}
                                 </div>
                               </div>
-                              <div>
-                                <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+
+                              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-green-50 to-slate-50 dark:from-green-950/20 dark:to-slate-800/50">
+                                <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                   Backend
                                 </h5>
-                                <div className="flex flex-wrap gap-1">
+                                <div className="flex flex-wrap gap-2 justify-center">
                                   {project.architecture.backend.map((tech) => (
                                     <Badge
                                       key={tech}
-                                      variant="outline"
-                                      className="text-xs"
+                                      variant="secondary"
+                                      className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
                                     >
                                       {tech}
                                     </Badge>
                                   ))}
                                 </div>
                               </div>
-                              <div>
-                                <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+
+                              {project.architecture.stateManagement && (
+                                <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-purple-50 to-slate-50 dark:from-purple-950/20 dark:to-slate-800/50">
+                                  <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                    State Management
+                                  </h5>
+                                  <div className="flex flex-wrap gap-2 justify-center">
+                                    {project.architecture.stateManagement.map(
+                                      (tech) => (
+                                        <Badge
+                                          key={tech}
+                                          variant="secondary"
+                                          className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
+                                        >
+                                          {tech}
+                                        </Badge>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+
+                              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-yellow-50 to-slate-50 dark:from-yellow-950/20 dark:to-slate-800/50">
+                                <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                                   Payments
                                 </h5>
-                                <div className="flex flex-wrap gap-1">
+                                <div className="flex flex-wrap gap-2 justify-center">
                                   {project.architecture.payments.map((tech) => (
                                     <Badge
                                       key={tech}
-                                      variant="outline"
-                                      className="text-xs"
+                                      variant="secondary"
+                                      className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
                                     >
                                       {tech}
                                     </Badge>
                                   ))}
                                 </div>
                               </div>
-                              <div>
-                                <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+
+                              {project.architecture.aiAndServices && (
+                                <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-orange-50 to-slate-50 dark:from-orange-950/20 dark:to-slate-800/50">
+                                  <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    AI & Services
+                                  </h5>
+                                  <div className="flex flex-wrap gap-2 justify-center">
+                                    {project.architecture.aiAndServices.map(
+                                      (tech) => (
+                                        <Badge
+                                          key={tech}
+                                          variant="secondary"
+                                          className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
+                                        >
+                                          {tech}
+                                        </Badge>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+
+                              <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-indigo-50 to-slate-50 dark:from-indigo-950/20 dark:to-slate-800/50">
+                                <h5 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center justify-center gap-2">
+                                  <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                                   Development
                                 </h5>
-                                <div className="flex flex-wrap gap-1">
+                                <div className="flex flex-wrap gap-2 justify-center">
                                   {project.architecture.development.map(
                                     (tech) => (
                                       <Badge
                                         key={tech}
-                                        variant="outline"
-                                        className="text-xs"
+                                        variant="secondary"
+                                        className="text-xs px-2.5 py-1.5 font-medium bg-white/60 dark:bg-slate-800/60 border-0 shadow-sm"
                                       >
                                         {tech}
                                       </Badge>
@@ -371,33 +561,23 @@ export default function ProjectsPage() {
 
                         {/* Key Features */}
                         <div>
-                          <h4 className="font-semibold text-slate-900 dark:text-white mb-3">
+                          <h4 className="font-semibold text-slate-900 dark:text-white mb-4 text-center">
                             Key Features
                           </h4>
-                          <ul className="space-y-2">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {project.features.map((feature, featureIndex) => (
-                              <li
+                              <div
                                 key={featureIndex}
-                                className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300"
+                                className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-center"
                               >
-                                <div className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 flex-shrink-0" />
-                                {feature}
-                              </li>
+                                <span className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                                  {feature}
+                                </span>
+                              </div>
                             ))}
-                          </ul>
+                          </div>
                         </div>
 
-                        {/* Action Buttons */}
-                        <div className="flex gap-3 pt-4">
-                          <Button className="flex-1">
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            Live Demo
-                          </Button>
-                          <Button variant="outline" className="flex-1">
-                            <Github className="mr-2 h-4 w-4" />
-                            View Code
-                          </Button>
-                        </div>
                       </div>
                     </CardContent>
                   </div>

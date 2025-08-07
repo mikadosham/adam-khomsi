@@ -17,10 +17,7 @@ import {
   CreditCard,
   Mail,
   Zap,
-  Users,
-  Globe,
   Shield,
-  Smartphone,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -57,7 +54,13 @@ export default function AboutPage() {
     },
     {
       category: "Shopify Ecosystem",
-      items: ["Polaris", "Shopify APIs", "Liquid", "Merchant Solutions", "Developer Tools"],
+      items: [
+        "Polaris",
+        "Shopify APIs",
+        "Liquid",
+        "Merchant Solutions",
+        "Developer Tools",
+      ],
       icon: Shield,
     },
     {
@@ -77,7 +80,13 @@ export default function AboutPage() {
     },
     {
       category: "Development Tools",
-      items: ["Git/GitHub", "Cursor (VS Code)", "Claude Code", "Figma", "Vercel"],
+      items: [
+        "Git/GitHub",
+        "Cursor (VS Code)",
+        "Claude Code",
+        "Figma",
+        "Vercel",
+      ],
       icon: Zap,
     },
   ];
@@ -148,7 +157,11 @@ export default function AboutPage() {
             About Me
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Full-stack developer with deep Shopify ecosystem experience and a strong track record of building merchant-centric, flexible, and performant tools. Currently seeking opportunities with Shopify's Draft Orders Team to leverage my expertise in React/TypeScript, Next.js, Ruby on Rails, and GraphQL.
+            Full-stack developer with deep Shopify ecosystem experience and a
+            strong track record of building flexible, performant, and scalable
+            tools. Passionate about creating user-focused solutions
+            that solve real business problems using modern technologies like
+            React/TypeScript, Next.js, Ruby on Rails, and GraphQL.
           </p>
         </motion.div>
       </section>
@@ -168,10 +181,20 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                With over 7 years of experience at Shopify as a Frontend Developer in Developer Support, I specialize in building merchant-facing storefront features and internal tools that support complex developer workflows. My expertise spans both the merchant-facing interface and the APIs that power it, with a deep understanding of the Shopify ecosystem.
+                With over 7 years of experience at Shopify as a Frontend
+                Developer in Developer Support, I specialize in building
+                merchant-facing storefront features and internal tools that
+                support complex developer workflows. My expertise spans both the
+                merchant-facing interface and the APIs that power it, with a
+                deep understanding of the Shopify ecosystem.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                I'm proficient in React/TypeScript, Next.js, Ruby on Rails, and GraphQL, with a history of collaborating with cross-functional teams to craft solutions that elevate both user and merchant experiences. Known for clean code, creative thinking, and product intuition grounded in years of experience across eCommerce and internal tools.
+                I&apos;m proficient in React/TypeScript, Next.js, Ruby on Rails,
+                and GraphQL, with a history of collaborating with
+                cross-functional teams to craft solutions that elevate both user
+                and merchant experiences. Known for clean code, creative
+                thinking, and product intuition grounded in years of experience
+                across eCommerce and internal tools.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 My personal projects include{" "}
@@ -182,13 +205,10 @@ export default function AboutPage() {
                 <span className="font-semibold text-slate-900 dark:text-white">
                   JazzHunt
                 </span>
-                , a musician-focused visual search tool. These showcase my ability to handle complex business logic, integrate multiple services, and deliver polished, production-ready products.
+                , a musician-focused visual search tool. These showcase my
+                ability to handle complex business logic, integrate multiple
+                services, and deliver polished, production-ready products.
               </p>
-              <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 border-l-4 border-blue-500">
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                  Education: Bachelor of Arts (Hons) in Jazz Studies, 2:1 from Leeds College of Music, UK (2004)
-                </p>
-              </div>
             </CardContent>
           </Card>
         </motion.div>
@@ -207,7 +227,7 @@ export default function AboutPage() {
             Skills & Technologies
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300">
-            Here are the technologies and tools I work with on a daily basis.
+            Here are the technologies and tools I work with.
           </p>
         </motion.div>
 
@@ -262,7 +282,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto space-y-6">
           {experience.map((exp, index) => (
             <motion.div
-              key={exp.title}
+              key={`${exp.title}-${exp.company}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -303,12 +323,12 @@ export default function AboutPage() {
           <Card className="p-8">
             <CardHeader>
               <CardTitle className="text-2xl mb-4">
-                Let's Work Together
+                Let&apos;s Work Together
               </CardTitle>
               <CardDescription className="text-base">
-                I'm always interested in new opportunities and exciting
+                I&apos;m always interested in new opportunities and exciting
                 projects. Whether you have a specific project in mind or just
-                want to chat about technology, I'd love to hear from you.
+                want to chat about technology, I&apos;d love to hear from you.
               </CardDescription>
             </CardHeader>
             <CardContent>
