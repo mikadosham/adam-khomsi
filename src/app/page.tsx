@@ -244,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="container mx-auto px-4 py-1 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -269,8 +269,8 @@ export default function Home() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full transition-all duration-300 hover:shadow-lg">
-                <CardHeader className="text-center">
+              <Card className="h-full transition-all duration-300 hover:shadow-lg flex flex-col">
+                <CardHeader className="text-center flex-shrink-0">
                   <div className="flex flex-col items-center mb-4 min-h-[100px] justify-center">
                     {project.title === "Rehostly" ? (
                       <div className="w-32 h-auto">
@@ -298,8 +298,8 @@ export default function Home() {
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-center">
-                  <div className="space-y-4">
+                <CardContent className="text-center flex-1 flex flex-col">
+                  <div className="space-y-4 flex-1 flex flex-col">
                     <div className="flex flex-wrap gap-2 justify-center">
                       {project.tech.map((tech) => (
                         <Badge
@@ -317,7 +317,7 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex gap-2 justify-center">
+                    <div className="flex gap-2 justify-center mt-auto">
                       <Link
                         href={project.demoUrl}
                         target="_blank"
