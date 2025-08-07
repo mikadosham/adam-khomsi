@@ -58,6 +58,9 @@ export default function AboutPage() {
         "Polaris",
         "Shopify APIs",
         "Liquid",
+        "Shopify Apps",
+        "Checkout Extensibility",
+        "Shopify Functions",
         "Merchant Solutions",
         "Developer Tools",
       ],
@@ -97,7 +100,7 @@ export default function AboutPage() {
       company: "Shopify",
       period: "2017 - Present",
       description:
-        "Built and maintained merchant-facing storefront features and internal tools supporting developer support workflows using React, TypeScript, and Ruby on Rails. Collaborated with merchant developers and partners to debug and resolve complex issues. Shaped developer support architecture and participated in cross-team projects, training, and mentorship.",
+        "Built and maintained merchant-facing storefront features and internal tools supporting developer support workflows using React, TypeScript, and Ruby on Rails. Collaborated with merchant developers and partners to debug and resolve complex issues. Shaped developer support and participated in cross-team projects, training, and mentorship.",
     },
     {
       title: "Founder/Engineer",
